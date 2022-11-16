@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 3 + Vuetify 3 (CDN)</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+    /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <v-app>
+        <v-toolbar>
+          <v-app-bar-nav-icon></v-app-bar-nav-icon>
+          <v-toolbar-title>Title</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon>favorite</v-icon>
+          </v-btn>
+          <v-btn icon>
+            <v-icon>more_vert</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-main>hello world</v-main>
+      </v-app>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.x/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.js"></script>
+    <script>
+      // console.log(Vue.version);
+      // console.log(Vuetify.version);
+      const { createApp } = Vue;
+      const { createVuetify, components, directives } = Vuetify;
+      // import { aliases, md } from "vuetify/iconsets/md";
+      // const { aliases, md } = "vuetify/iconsets/md";
+      const vuetify = createVuetify({
+        components,
+        directives,
+        icons: {
+          defaultSet: "md",
+          aliases, // Uncaught ReferenceError: aliases is not defined
+          sets: {
+            md,
+          },
+        },
+      });
+      const app = createApp();
+      app.use(vuetify).mount("#app");
+    </script>
+  </body>
+</html>
